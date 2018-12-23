@@ -1,0 +1,6 @@
+{
+    "name": "Postdebug",
+    "slug": "postdebug",
+    "version": "1.0",
+    "description": "for post/get api while debugging"
+}

@@ -14,7 +14,18 @@
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
+$env = $app->detectEnvironment(function() {
+    if(!empty(getenv('DEV_ENV'))){
+        return getenv('DEV_ENV');
+    }
+});
 
+if(!$env){
+	$env = $_SERVER['DEV_ENV'];
+}
+$configFile = !empty($env) ? $env . '.env' : '.env';
+
+$app->loadEnvironmentFrom($configFile);
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
