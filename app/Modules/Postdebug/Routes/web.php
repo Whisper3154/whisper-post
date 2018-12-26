@@ -12,8 +12,6 @@
 */
 
 Route::group(['namespace' => 'Postdebug','prefix' => 'postdebug'], function () {
-    Route::get('/', function () {
-        dd('This is the Postdebug module index page. Build something great!');
-    });
-    Route::get('post', function(){dd(123);});
+    Route::get('index', 'PostdebugController@index');
+    Route::get('debug', 'PostdebugController@debug');
 });
